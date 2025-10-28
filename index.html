@@ -1,23 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bassel Kharwat</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bassel Kharwat — IT Professional</title>
+  <meta name="description" content="Portfolio and resume of Your Name, an IT professional specializing in desktop support, cloud, and security." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Bassel Kharwat — IT Professional" />
+  <meta property="og:description" content="Portfolio and resume of Bassel Kharwat, an IT professional specializing in IT support, Cloud, and Cyber Security." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bkharwat.com" />
+  <meta property="og:image" content="/og-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <style>
-    body {
-      font-family: sans-serif;
-      background: #f7f7f7;
-      text-align: center;
-      padding: 50px;
+    :root {
+      --bg: #0b1020;
+      --panel: #11162a;
+      --muted: #8b9db8;
+      --text: #e8eef7;
+      --accent: #0ea5e9;
+      --accent-2: #22d3ee;
+      --ring: rgba(34,211,238,.35);
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.5);
     }
-    h1 {
-      color: #333;
+    @media (prefers-color-scheme: light) {
+      :root { --bg:#f7fafc; --panel:#ffffff; --muted:#54627a; --text:#0b1020; --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);} 
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height:100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(14,165,233,.15), transparent 60%),
+                  radial-gradient(800px 400px at 90% -20%, rgba(34,211,238,.12), transparent 60%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(1100px, 92%); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px);
+      background: color-mix(in oklab, var(--bg) 60%, transparent);
+      border-bottom: 1px solid color-mix(in oklab, var(--muted) 20%, transparent);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+    .nav a.logo { font-weight:800; letter-spacing:.3px; font-size:1.05rem; color:var(--text); }
+    .nav ul { list-style:none; display:flex; gap:18px; padding:0; margin:0; }
+    .nav ul a { padding:8px 12px; border-radius:999px; color:var(--text); opacity:.9; }
+    .nav ul a:hover { background: color-mix(in oklab, var(--muted) 8%, transparent); opacity:1; text-decoration:none; }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; border:1px solid color-mix(in oklab, var(--accent) 20%, transparent); box-shadow: var(--shadow); background: linear-gradient(180deg, color-mix(in oklab, var(--panel) 85%, transparent), color-mix(in oklab, black 6%, transparent)); color: var(--text); }
+    .btn:hover { border-color: var(--accent); box-shadow:0 12px 40px var(--ring); text-decoration:none; transform: translateY(-1px); }
+
+    .hero { display:grid; grid-template-columns: 1.2fr .8fr; gap: 40px; padding: 72px 0; align-items:center; }
+    .card { background: var(--panel); border: 1px solid color-mix(in oklab, var(--muted) 20%, transparent); border-radius: 18px; padding: 26px; box-shadow: var(--shadow); }
+    h1 { font-size: clamp(2rem, 3.2vw, 3rem); line-height:1.15; margin:0 0 8px; }
+    .subtitle { color: var(--muted); margin:0 0 18px; }
+    .cta { display:flex; gap:12px; flex-wrap:wrap; }
+
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .chip { font-size:.85rem; padding:8px 12px; border-radius:999px; border:1px solid color-mix(in oklab, var(--muted) 30%, transparent); color: var(--muted); }
+
+    section { padding: 28px 0 8px; }
+    section h2 { font-size: clamp(1.3rem, 2.4vw, 1.8rem); margin: 0 0 10px; }
+    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .col-6 { grid-column: span 6; }
+    .col-4 { grid-column: span 4; }
+    .col-12 { grid-column: span 12; }
+    .project { display:flex; flex-direction:column; gap:10px; }
+
+    .timeline { position:relative; padding-left:24px; }
+    .timeline::before { content:""; position:absolute; left:8px; top:4px; bottom:4px; width:2px; background: color-mix(in oklab, var(--muted) 30%, transparent); }
+    .entry { position:relative; padding: 10px 0 10px 12px; }
+    .entry::marker { content: none; }
+    .entry::before { content:""; position:absolute; left:-2px; top:18px; width:10px; height:10px; border-radius:50%; background: var(--accent); box-shadow:0 0 0 4px color-mix(in oklab, var(--accent) 20%, transparent); }
+
+    footer { border-top: 1px solid color-mix(in oklab, var(--muted) 20%, transparent); padding: 24px 0; color: var(--muted); margin-top: 40px; }
+
+    /* Resume print view */
+    @media print {
+      header, .cta, .chips, .project .links, footer { display:none !important; }
+      body { background:white; color:black; }
+      .card { border:none; box-shadow:none; padding:0; }
+      a { color:black; text-decoration:none; }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .col-6 { grid-column: span 12; }
+      .col-4 { grid-column: span 12; }
     }
   </style>
 </head>
 <body>
-  <h1>Hello, I'm Bassel Kharwat</h1>
-  <p>This is my personal website hosted on AWS EC2 🚀</p>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#top">Your<span style="color:var(--accent-2)">Name</span></a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- HERO -->
+    <section class="hero" aria-label="Intro">
+      <div class="card">
+        <h1>Your Name</h1>
+        <p class="subtitle">IT Specialist • Desktop Support • Cloud & Security Curious</p>
+        <p>
+          I help small teams move fast without breaking things—rolling out endpoint management, SharePoint/Intune, and pragmatic cloud.
+          Currently at <strong>Catapult Health</strong> and building <strong>DeltaVise</strong> for small-business IT.
+        </p>
+        <div class="chips" aria-label="Core skills">
+          <span class="chip">Windows & macOS</span>
+          <span class="chip">M365 / Intune</span>
+          <span class="chip">AWS EC2 / VPC</span>
+          <span class="chip">Security+ </span>
+          <span class="chip">SharePoint Permissions</span>
+        </div>
+        <div class="cta" style="margin-top:18px;">
+          <a class="btn" href="#resume" onclick="scrollToId('resume')">View Resume</a>
+          <a class="btn" href="mailto:you@yourdomain.com" aria-label="Email me">Email Me</a>
+          <a class="btn" href="https://github.com/yourhandle" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div>
+        <div class="card" aria-label="Quick profile">
+          <h2 style="margin-top:0">What I Do</h2>
+          <p>
+            • Own onboarding/offboarding, device lifecycle, and vendor coordination.<br/>
+            • Deploy secure-by-default baselines and document everything.<br/>
+            • Design lightweight AWS setups and home labs for learning.
+          </p>
+          <p class="subtitle">Dallas / Remote • Open to projects</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="card">
+        <h2>About</h2>
+        <p>
+          I’m a hands-on IT generalist who likes clean processes and calm systems. My edge is translating
+          business needs into straightforward tech with just enough automation.
+        </p>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="card">
+        <h2>Experience</h2>
+        <div class="timeline">
+          <div class="entry">
+            <h3 style="margin:0">IT Support Specialist — Catapult Health</h3>
+            <p class="subtitle">2024 — Present · Dallas, TX</p>
+            <ul>
+              <li>Led HITRUST audit preparations with clean device baselines and documentation.</li>
+              <li>Built SharePoint permission model (CEO/CFO/leads) and migration plan.</li>
+              <li>Mac + Windows support; automated login checks for OS, patches, and installed apps.</li>
+            </ul>
+          </div>
+          <div class="entry">
+            <h3 style="margin:0">Founder — DeltaVise (MSP)</h3>
+            <p class="subtitle">2024 — Present</p>
+            <ul>
+              <li>Onboarded Traitbio; coordinated transition from incumbent IT provider.</li>
+              <li>Advised on remote support stack (AnyDesk, Splashtop, ScreenConnect).</li>
+              <li>Designed AWS/Wazuh lab for XDR learning and monitoring.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="card">
+        <h2>Projects</h2>
+        <div class="grid">
+          <article class="project col-6 card" style="background:transparent; border-style:dashed;">
+            <h3 style="margin:0">AWS Personal Site</h3>
+            <p>Single-EC2 static site with CI from GitHub; exploring ALB + Auto Scaling.</p>
+            <p class="links"><a href="https://github.com/yourhandle/yourrepo" target="_blank" rel="noopener">Repo</a> · <a href="#">Live</a></p>
+          </article>
+          <article class="project col-6 card" style="background:transparent; border-style:dashed;">
+            <h3 style="margin:0">Security Lab</h3>
+            <p>Wazuh on AWS with hardened EC2, VPC flow logs, and basic detections.</p>
+            <p class="links"><a href="#">Write‑up</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME SECTION -->
+    <section id="resume">
+      <div class="card">
+        <h2>Resume</h2>
+        <p class="subtitle">Quick view below. For a printable PDF, use the “Download PDF” link.</p>
+        <div class="cta" style="margin:14px 0 20px;">
+          <a class="btn" href="/resume.pdf" download>Download PDF</a>
+          <a class="btn" href="#" onclick="window.print(); return false;">Print This Page</a>
+        </div>
+        <!-- Inline resume layout -->
+        <div class="grid">
+          <div class="col-12">
+            <h3 style="margin:0">Your Name</h3>
+            <p class="subtitle">Dallas, TX • <a href="mailto:you@yourdomain.com">you@yourdomain.com</a> • <a href="https://www.linkedin.com/in/yourname" target="_blank" rel="noopener">LinkedIn</a> • <a href="https://github.com/yourhandle" target="_blank" rel="noopener">GitHub</a></p>
+          </div>
+          <div class="col-12">
+            <h4>Summary</h4>
+            <p>IT support specialist and emerging cloud/security practitioner. Known for thorough documentation and frictionless user support.</p>
+          </div>
+          <div class="col-12">
+            <h4>Skills</h4>
+            <p>Windows/macOS · M365/Intune · SharePoint · Azure AD/Entra · AWS EC2/VPC/IAM/S3 · Scripting basics (PowerShell/Bash) · Networking · Security hygiene</p>
+          </div>
+          <div class="col-12">
+            <h4>Experience</h4>
+            <p><strong>Catapult Health — Desktop Support Specialist</strong> (2024–Present)</p>
+            <ul>
+              <li>Autonomously owned onboarding/offboarding; slashed setup time with checklists and scripts.</li>
+              <li>Partnered with leadership on SharePoint structure and permissions.</li>
+              <li>Supported HITRUST: device posture, patch cadence, evidence collection.</li>
+            </ul>
+            <p><strong>DeltaVise (MSP) — Founder</strong> (2024–Present)</p>
+            <ul>
+              <li>Migrated SMEs to manageable, secure defaults; coordinated vendor relationships.</li>
+              <li>Evaluated remote-support tools; documented pros/cons and rollout steps.</li>
+            </ul>
+          </div>
+          <div class="col-12">
+            <h4>Education & Certs</h4>
+            <p>CompTIA Network+ (2024) • Security+ (2025) • Continuous AWS study (SAA track)</p>
+          </div>
+        </div>
+        <!-- Optional embedded PDF preview; replace src when you have resume.pdf -->
+        <div class="card" style="margin-top:16px;">
+          <object data="/resume.pdf" type="application/pdf" width="100%" height="500" aria-label="Resume PDF preview">
+            <p>Can’t display the PDF? <a href="/resume.pdf" target="_blank" rel="noopener">Open resume.pdf</a></p>
+          </object>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="card">
+        <h2>Contact</h2>
+        <p>Best way to reach me is email: <a href="mailto:bkharwat@gmail.com">bkharwat@gmail.com</a>. I’m open to interesting IT projects and collaborations.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> Bassel Kharwat. Built with simple HTML/CSS on AWS EC2. 💻</small>
+    </div>
+  </footer>
+
+  <script>
+    function scrollToId(id){
+      const el = document.getElementById(id);
+      if(!el) return; el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- JSON-LD: Person schema for better SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Bassel Kharwat",
+    "jobTitle": "IT Support ",
+    "affiliation": {"@type":"Organization", "name":"Catapult Health"},
+    "url": "https://your-domain.example",
+    "sameAs": [
+      "https://www.linkedin.com/in/yourname",
+      "https://github.com/yourhandle"
+    ],
+    "email": "mailto:bkharwat@gmail.com",
+    "address": {"@type":"PostalAddress","addressLocality":"Dallas","addressRegion":"TX","addressCountry":"US"}
+  }
+  </script>
 </body>
 </html>
